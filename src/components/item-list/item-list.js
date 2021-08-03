@@ -1,44 +1,30 @@
 import React, { Component } from 'react';
-import SwapiService from '../../services/swapi-service';
-import ErrorBoundary from "../error-boundary";
-import ErrorButton from "../error-button";
-
 import './item-list.css';
+import SwapiService from "../../services/swapi-service";
 
-export default class ItemList extends Component {
-  state = {
-    items: [],
-    load: true
-  }
 
-  swapi = new SwapiService()
+const {getAllPeople} = new SwapiService()
 
-  componentDidMount() {
-    this.updateItem()
-  }
+const ItemList = (props) => {
 
-  updateItem() {
-    this.props.getData().then((data) => {
-      this.setState({items: data})
-    })
-  }
 
-  renderElements = (elementCollection) => {
+ const renderElements = (elementCollection) => {
     return elementCollection.map((item) => {
       return (
-        <li
-          onClick={() => {this.props.selectPerson(item.id)}}
-          key={item.id}
-          className="list-group-item"
-        >
-          {this.props.children(item)}
-        </li>
+          <li
+              onClick={() => {
+                props.selectPerson(item.id)
+              }}
+              key={item.id}
+              className="list-group-item"
+          >
+            {props.children(item)}
+          </li>
       )
     })
   }
 
-  render() {
-    const content = this.renderElements(this.state.items)
+  const content = renderElements(props.data)
 
     return (
       <ul className="item-list list-group">
@@ -47,4 +33,8 @@ export default class ItemList extends Component {
       </ul>
     );
   }
-}
+
+
+
+
+export default ItemList;

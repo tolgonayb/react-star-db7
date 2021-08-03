@@ -1,6 +1,6 @@
 import React from 'react';
 import ItemList from '../item-list';
-import PersonDetails from '../person-details';
+import PersonDetails from '../item-details';
 import Row from '../row';
 import SwapiService from '../../services/swapi-service'
 import ErrorBoundary from "../error-boundary";

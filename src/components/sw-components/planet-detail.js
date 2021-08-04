@@ -3,7 +3,7 @@ import {ItemDetails, Record} from '../item-details';
 import withSwapiService from '../hoc/with-swapi-service'
 
 
-const planetDetail = ({getPlanet, getPlanetImage}) => {
+const PlanetDetail = ({getPlanet, getPlanetImage}) => {
 
 return (
     <ItemDetails
@@ -21,9 +21,9 @@ return (
 
 const mapMethodsToProps = (swapi_object) => {
     return {
-        getPlanet: swapi_object.swapi_object,
+        getPlanet: swapi_object.getPlanet,
         getPlanetImage: swapi_object.getPlanetImage,
     }
 }
 
-export default withSwapiService(planetDetail, mapMethodsToProps)
+export default withSwapiService(PlanetDetail, mapMethodsToProps)

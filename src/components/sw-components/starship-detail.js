@@ -4,7 +4,7 @@ import withSwapiService from '../hoc/with-swapi-service'
 
 
 
-const starshipDetail = ({getStarship, getStarshipImage}) => {
+const StarshipDetail = ({getStarship, getStarshipImage}) => {
     return (
         <ItemDetails>
             itemId={7}
@@ -19,9 +19,9 @@ const starshipDetail = ({getStarship, getStarshipImage}) => {
 }
 const mapMethodsToProps = (swapi_object) => {
     return {
-        getStarship: swapi_object.swapi_object,
+        getStarship: swapi_object.getStarship,
         getStarshipImage: swapi_object.getStarshipImage,
     }
 }
 
-export default withSwapiService(starshipDetail, mapMethodsToProps());
+export default withSwapiService(StarshipDetail, mapMethodsToProps);

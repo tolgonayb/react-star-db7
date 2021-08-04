@@ -1,6 +1,5 @@
-import React from "react";
-import Spinner from "../spinner";
-
+import React from 'react';
+import Spinner from '../spinner';
 
 
 const withData = (ComponentView, getData) => {
@@ -16,18 +15,29 @@ const withData = (ComponentView, getData) => {
 
         updateItem() {
             getData().then((data) => {
-                this.setState({
-                    data: data,
-                    load: false
-                })
+                this.setState(
+                    {
+                        data: data,
+                        load: false
+                    }
+                )
             })
         }
 
         render() {
-            const content = this.state.load ? <Spinner /> : <ComponentView {...this.props} data={this.state.data} />
+            const content = (
+                this.state.load ?
+                    <Spinner /> :
+                    <ComponentView
+                        {...this.props}
+                        data={this.state.data}
+                    />
+            )
+
             return content;
         }
     }
 }
 
-export default withData()
+
+export default withData

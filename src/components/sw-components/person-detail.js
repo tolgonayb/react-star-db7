@@ -3,7 +3,7 @@ import {ItemDetails, Record} from '../item-details';
 import withSwapiService from "../hoc/with-swapi-service";
 
 
-const personDetail = ({getPerson, getPersonImage}) => {
+const PersonDetail = ({getPerson, getPersonImage}) => {
     return (
         <ItemDetails>
             itemId={5}
@@ -19,10 +19,10 @@ const personDetail = ({getPerson, getPersonImage}) => {
 
 const mapMethodsToProps = (swapi_object) => {
     return {
-        getPerson: swapi_object.swapi_object,
+        getPerson: swapi_object.getPerson,
         getPersonImage: swapi_object.getPersonImage
 
     }
 }
 
-export default withSwapiService(personDetail, mapMethodsToProps());
+export default withSwapiService(PersonDetail, mapMethodsToProps);

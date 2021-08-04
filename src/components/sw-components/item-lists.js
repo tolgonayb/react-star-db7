@@ -18,7 +18,7 @@ const withChildFunction = (ComponentView, fn) => {
 }
 
 const PeopleList = withChildFunction(
-        withData(ItemList, getAllPeople),
+    withData(ItemList, getAllPeople),
             (item) => item.name
     )
 
